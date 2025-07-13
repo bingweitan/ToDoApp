@@ -8,12 +8,12 @@ export function TodoCard(props) {
                 <button onClick={() => {
                     handleComplete(todoIndex);
                 }} disabled={todo.complete}>
-                    <h6>Done</h6>
+                    <i class="fa-solid fa-check"></i>
                 </button>
                 <button onClick={() => {
                     handleDeleteTodo(todoIndex);
                 }}>
-                    <h6>Delete</h6>
+                    <i class="fa-solid fa-trash"></i>
                 </button>
             </div>
         </div>
