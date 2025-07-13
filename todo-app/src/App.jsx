@@ -16,26 +16,30 @@ function App() {
     { input:'Learn React', complete: false } 
   ])
 
-  const [selectedTab, setSelectedTab] = useState("Open");
+  const [selectedTab, setSelectedTab] = useState("Open"); // Default selected tab
 
   function handleAddTodo(newTodo) {
     const newTodoList = [...todos, {input: newTodo, complete:false}]
     setTodos(newTodoList)
   }
 
-  function handleEditTodo(index) {
-    
+  function handleComplete(index) {
+    // update/edit/modify 
+    let newTodoList = []
   }
 
   function handleDeleteTodo(index) {
-
+    let newTodoList =  todos.filter((val, valIndex) => {
+      return valIndex !== index;
+    })
+    setTodos(newTodoList);
   }
 
   return (
     <>
       <Header todos={todos}/>
       <Tabs selectedTab={selectedTab} setSelectedTab={setSelectedTab} todos={todos}/>
-      <TodoList selectedTab={selectedTab} todos={todos}/>
+      <TodoList handleDeleteTodo={handleDeleteTodo} selectedTab={selectedTab} todos={todos}/>
       <TodoInput handleAddTodo={handleAddTodo}/>
     </>
   )
